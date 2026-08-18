@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="body-login-novo">
+
+    <!-- Botão de Voltar -->
+    <a href="index.html" class="login-back-link"><i class="fa-solid fa-arrow-left"></i> Voltar para tela inicial</a>
+
+    <div id="fireworks-container"></div>
+    <div id="msg-box" class="msg-box" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;"></div>
+
+    <main class="login-premium-layout">
+        
+        <!-- LADO ESQUERDO: Textos e Benefícios -->
+        <div class="login-left">
+            
+            <!-- Logo agora é clicável -->
+            <a href="index.html" class="logo-link">
+                <div class="login-logo" style="display: flex; align-items: center; gap: 16px;">
+                    <img src="logo.svg" alt="Logo" onerror="this.style.display='none'" style="max-height: 55px;">
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-family: var(--fonte-serif); font-size: 26px; font-weight: 700; color: var(--cor-texto-escuro); letter-spacing: 2px;">ARTE BALÃO</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="login-text-content">
+                <h1>Seja bem-vindo a<br><span class="highlight-cursive">Arte Balão <i class="fa-regular fa-heart"></i></span></h1>
+                <p class="login-subtitle">Faça login para continuar<br>e realizar momentos inesquecíveis.</p>
+
+                <ul class="login-features">
+                    <li>
+                        <div class="feature-icon-box"><i class="fa-solid fa-balloon"></i></div>
+                        <span><strong>Momentos especiais</strong><br>para cada ocasião</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon-box"><i class="fa-solid fa-gift"></i></div>
+                        <span><strong>Produtos selecionados</strong><br>com amor e carinho</span>
+                    </li>
+                    <li>
+                        <div class="feature-icon-box"><i class="fa-regular fa-heart"></i></div>
+                        <span><strong>Encante, celebre</strong><br>e realize sonhos</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CENTRO: Cartão de Login e Registro -->
+        <div class="login-center">
+            <div class="login-card">
+                
+                <div id="loading-spinner" class="spinner-container" style="display: none;">
+                    <div class="spinner"></div>
+                    <p id="spinner-text">Entrando...</p>
+                </div>
+
+                <!-- FORMULÁRIO DE LOGIN -->
+                <form id="form-login" class="auth-form active">
+                    <div class="card-header">
+                        <h2>Bem-vindo de volta!</h2>
+                        <p>Entre com suas informações para acessar<br>sua conta.</p>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label>E-mail</label>
+                        <div class="input-with-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label>Senha</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="••••••••" required>
+                            <i class="fa-regular fa-eye toggle-password"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <label class="checkbox-container">
+                            <input type="checkbox"> Lembrar-me
+                        </label>
+                        <a href="#" class="forgot-link">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" class="btn-premium">Entrar <i class="fa-solid fa-arrow-right"></i></button>
+
+                    <div class="divider">
+                        <span>ou entre com</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="btn-social"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google"> Google</button>
+                        <button type="button" class="btn-social"><i class="fa-brands fa-facebook" style="color: #1877F2; font-size: 18px;"></i> Facebook</button>
+                    </div>
+
+                    <p class="switch-form">Ainda não tem uma conta? <a href="#" id="tab-register">Criar conta</a></p>
+                </form>
+
+                <!-- FORMULÁRIO DE REGISTRO -->
+                <form id="form-register" class="auth-form" style="display: none;">
+                    <div class="card-header">
+                        <h2>Crie sua conta ✨</h2>
+                        <p>Preencha os dados abaixo para se cadastrar.</p>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label>Nome completo</label>
+                        <div class="input-with-icon">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" placeholder="Ex: Juliana Silva" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label>E-mail</label>
+                        <div class="input-with-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label>Senha</label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" placeholder="Crie uma senha" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-premium" style="margin-top: 15px;">Cadastrar <i class="fa-solid fa-arrow-right"></i></button>
+
+                    <p class="switch-form">Já tem uma conta? <a href="#" id="tab-login">Entrar</a></p>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- LADO DIREITO: Imagem dos Balões -->
+        <div class="login-right">
+            <!-- Balões laterais decorativos -->
+            <img src="balao/balaonovo.png" alt="Balões Rosa" class="floating-balloons-img">
+        </div>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+

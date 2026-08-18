@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">ÁREA ADMINISTRATIVA</div>
+            <div class="admin-logo" style="display: flex; align-items: center; gap: 12px; padding: 24px 16px;">
+                <img src="logo.svg" alt="Logo" style="width: 30px; filter: brightness(0) invert(1);">
+                <span style="font-family: var(--fonte-serif); font-weight: 700; letter-spacing: 1px;">ARTE BALÃO</span>
+            </div>
+            
+            <ul class="admin-menu">
+                <li class="active"><i class="fa-solid fa-house"></i> Visão geral</li>
+                <li><a href="pedidos.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-box-open"></i> Pedidos</a></li>
+                <li><a href="admin-modelos.html" style="color: inherit; text-decoration: none;"><i class="fa-solid fa-box-open"></i> Modelos</a></li>
+                <li onclick="sairDoAdmin()" class="btn-sair-admin">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair
+                </li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <h1>Visão geral</h1>
+
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <p>Pedidos hoje</p>
+                    <h3>12</h3>
+                </div>
+                <div class="admin-card">
+                    <p>Aguardando análise</p>
+                    <h3>8</h3>
+                </div>
+                <div class="admin-card">
+                    <p>Em produção</p>
+                    <h3>15</h3>
+                </div>
+                <div class="admin-card">
+                    <p>Prontos para retirada</p>
+                    <h3>5</h3>
+                </div>
+            </div>
+
+            <div class="admin-charts-grid">
+                <div class="chart-box">
+                    <h2>Pedidos dos últimos 7 dias</h2>
+                    <canvas id="linhaPedidos"></canvas>
+                </div>
+                
+                <div class="chart-box">
+                    <h2>Status dos pedidos</h2>
+                    <canvas id="pizzaStatus"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function sairDoAdmin() {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'index.html';
+        }
+
+        const ctxLinha = document.getElementById('linhaPedidos').getContext('2d');
+        new Chart(ctxLinha, {
+            type: 'line',
+            data: {
+                labels: ['12/05', '13/05', '14/05', '15/05', '16/05', '17/05', '18/05'],
+                datasets: [{
+                    label: 'Pedidos',
+                    data: [13, 11, 20, 14, 9, 13, 20, 14, 21],
+                    borderColor: '#f45b96',
+                    backgroundColor: 'rgba(244, 91, 150, 0.1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#f45b96',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, max: 30 } }
+            }
+        });
+
+        const ctxPizza = document.getElementById('pizzaStatus').getContext('2d');
+        new Chart(ctxPizza, {
+            type: 'doughnut',
+            data: {
+                labels: ['Aguardando análise', 'Em produção', 'Pronto para retirada', 'Concluído', 'Cancelado'],
+                datasets: [{
+                    data: [25, 30, 15, 20, 10],
+                    backgroundColor: ['#f45b96', '#fbc02d', '#42a5f5', '#66bb6a', '#ef5350'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                cutout: '60%',
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    </script>
+</body>
+</html>

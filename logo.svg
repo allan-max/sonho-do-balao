@@ -1,0 +1,21 @@
+<svg width="100" height="150" viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10, 10)">
+    <!-- Balloon Body -->
+    <path d="M 40 0 C 65 0 80 20 80 45 C 80 80 45 100 40 105 C 35 100 0 80 0 45 C 0 20 15 0 40 0 Z" fill="#7b8a7e" />
+    
+    <!-- Balloon Highlight -->
+    <path d="M 15 35 C 15 25 25 10 40 5 C 20 15 15 30 15 40 Z" fill="#ffffff" opacity="0.2" />
+
+    <!-- Balloon Neck -->
+    <path d="M 35 102 L 45 102 L 48 112 L 32 112 Z" fill="#7b8a7e" />
+
+    <!-- Ribbon / Bow -->
+    <path d="M 40 110 C 25 110 20 120 30 125 C 40 130 40 110 40 110 Z" fill="#c48f82" />
+    <path d="M 40 110 C 55 110 60 120 50 125 C 40 130 40 110 40 110 Z" fill="#c48f82" />
+    <circle cx="40" cy="112" r="3" fill="#ae7a6d" />
+    
+    <!-- Strings -->
+    <path d="M 40 115 Q 35 130 45 140" fill="none" stroke="#c48f82" stroke-width="2" />
+    <path d="M 40 115 Q 45 125 35 135" fill="none" stroke="#c48f82" stroke-width="2" />
+  </g>
+</svg>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">ÁREA ADMINISTRATIVA</div>
+            <div class="admin-logo" style="display: flex; align-items: center; gap: 12px; padding: 24px 16px;">
+                <img src="logo.svg" alt="Logo" style="width: 30px; filter: brightness(0) invert(1);">
+                <span style="font-family: var(--fonte-serif); font-weight: 700; letter-spacing: 1px;">ARTE BALÃO</span>
+            </div>
+
+            <ul class="admin-menu">
+                <li><a href="admin.html" style="color: inherit; text-decoration: none;"><i
+                            class="fa-solid fa-house"></i> Visão geral</a></li>
+                <li><a href="pedidos.html" style="color: inherit; text-decoration: none;"><i
+                            class="fa-solid fa-box-open"></i> Pedidos</a></li>
+                <li class="active"><i class="fa-solid fa-box-open"></i> Modelos</li>
+                <li onclick="sairDoAdmin()" class="btn-sair-admin">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sair
+                </li>
+            </ul>
+        </aside>
+
+        <main class="admin-main" style="padding: 30px;">
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h1 style="font-size: 24px; color: #1e293b; margin: 0;">Modelos de Balões</h1>
+                    <p style="font-size: 13px; color: #64748b; margin-top: 4px;">Gerencie os modelos disponíveis na sua
+                        loja</p>
+                </div>
+                <button onclick="abrirModal()"
+                    style="background-color: #ff6b81; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(255,107,129,0.2);">
+                    <i class="fa-solid fa-plus"></i> Novo modelo
+                </button>
+            </div>
+
+            <div class="orders-container"
+                style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 40px;">
+                <div class="orders-toolbar" style="margin-bottom: 20px;">
+                    <div class="search-box admin-search">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="pesquisa-modelo" placeholder="Buscar modelo...">
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="admin-table" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0;">
+                                <th style="padding: 12px; width: 80px; text-align: center;">Imagem</th>
+                                <th style="padding: 12px; width: 80px; text-align: center;">ID</th>
+                                <th style="padding: 12px; width: 200px; text-align: center;">Nome</th>
+                                <th style="padding: 12px; width: 140px; text-align: center;">Categoria</th>
+                                <th style="padding: 12px; width: 120px; text-align: center;">Preço</th>
+                                <th style="padding: 12px; width: 120px; text-align: center;">Status</th>
+                                <th style="padding: 12px; width: 100px; text-align: center;">Ações</th>
+                                <th style="width: auto;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-modelos-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <hr style="border: none; border-top: 2px dashed #e2e8f0; margin: 40px 0;">
+
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <div>
+                    <h1 style="font-size: 24px; color: #1e293b; margin: 0;">Adicionais</h1>
+                    <p style="font-size: 13px; color: #64748b; margin-top: 4px;">Opções extras que o cliente pode
+                        adicionar ao balão (ex: Bastão, Luzes LED)</p>
+                </div>
+                <button onclick="document.getElementById('modal-adicional').style.display='flex';"
+                    style="background-color: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(59,130,246,0.2);">
+                    <i class="fa-solid fa-plus"></i> Novo Adicional
+                </button>
+            </div>
+
+            <div class="orders-container"
+                style="background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                <div class="table-wrapper">
+                    <table class="admin-table" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e2e8f0;">
+                                <th style="padding: 12px; width: 250px; text-align: center;">Nome do Adicional</th>
+                                <th style="padding: 12px; width: 150px; text-align: center;">Valor Adicional</th>
+                                <th style="padding: 12px; width: 100px; text-align: center;">Ações</th>
+                                <th style="width: auto;"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela-adicionais">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="modal-overlay" id="modal-modelo">
+            <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
+                <h2>Novo Modelo</h2>
+                <div class="form-group">
+                    <label>Nome do Balão</label>
+                    <input type="text" id="input-nome" placeholder="Ex: Transparente com Confetes">
+                </div>
+                <div class="form-group">
+                    <label>ID (ex: confetes)</label>
+                    <input type="text" id="input-id" placeholder="Sem espaços ou acentos">
+                </div>
+                <div class="form-group">
+                    <label>Categoria e Preço</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="input-categoria" placeholder="Ex: Aniversário">
+                        <input type="text" id="input-preco" placeholder="Ex: 89,90">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="input-status">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Imagem do Balão (Clique ou arraste)</label>
+                    <div class="upload-area" id="upload-area" onclick="document.getElementById('input-imagem').click()">
+                        <input type="file" id="input-imagem" accept="image/*" style="display: none;">
+                        <img id="preview-imagem" src="" alt="Preview" style="display: none;">
+                        <div id="upload-text">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <p>Arraste a imagem ou clique aqui</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 15px;">
+                    <label style="font-weight: bold; color: var(--cor-primaria);">Cores Disponíveis para este Modelo</label>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Adicione as cores que o cliente pode escolher e faça o upload da foto do balão para cada cor.</p>
+                    
+                    <div id="lista-cores" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;"></div>
+                    
+                    <div style="display: flex; gap: 8px; align-items: center; background: #f9f9f9; padding: 10px; border-radius: 8px;">
+                        <input type="text" id="nova-cor-nome" placeholder="Ex: Rosa Bebê" style="flex: 2; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        <input type="color" id="nova-cor-hex" value="#ffb6c1" style="flex: 1; height: 35px; cursor: pointer; border: none;">
+                        <input type="file" id="nova-cor-img" accept="image/*" style="display: none;" onchange="previewNovaCorImg(this)">
+                        <button type="button" id="btn-nova-cor-img" class="btn btn-outline" style="padding: 8px 12px; font-size: 12px;" onclick="document.getElementById('nova-cor-img').click()">Anexar Foto</button>
+                        <button type="button" class="btn btn-primary" style="padding: 8px 12px; font-size: 12px;" onclick="adicionarCorLista()">Add Cor</button>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 15px;">
+                    <label style="font-weight: bold; color: var(--cor-primaria);">Adicionais Disponíveis para este
+                        Modelo</label>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Marque os adicionais permitidos e
+                        envie a foto do balão com cada adicional:</p>
+                    <div id="container-adicionais-modelo" style="display: flex; flex-direction: column; gap: 15px;">
+                    </div>
+                </div>
+
+                <div class="action-buttons" style="margin-top: 24px;">
+                    <button class="btn btn-outline" onclick="fecharModal()">Cancelar</button>
+                    <button class="btn btn-primary" onclick="salvarModelo()">Salvar Modelo</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-adicional" style="display: none;">
+            <div class="modal-content">
+                <h2 id="modal-adicional-title">Novo Adicional</h2>
+                <div class="form-group">
+                    <label>Nome do Adicional</label>
+                    <input type="text" id="input-adicional-nome" placeholder="Ex: Bastão">
+                </div>
+                <div class="form-group">
+                    <label>Valor Adicional (R$)</label>
+                    <input type="text" id="input-adicional-preco" placeholder="Ex: 15,00 ou -10,00">
+                </div>
+                <div class="form-group">
+                    <label>Posição da Imagem</label>
+                    <select id="input-adicional-posicao">
+                        <option value="frente">Frente</option>
+                        <option value="atras">Atrás</option>
+                        <option value="dentro">Dentro</option>
+                    </select>
+                </div>
+                <input type="hidden" id="edit-adicional-index" value="-1">
+                <div class="action-buttons" style="margin-top: 24px;">
+                    <button class="btn btn-outline" onclick="fecharModalAdicional()">Cancelar</button>
+                    <button class="btn btn-primary" onclick="salvarAdicional()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    <script>
+            // ==========================================
+            // 1. VARIÁVEIS DO BANCO DE DADOS
+            // ==========================================
+            let modelosAdmin = JSON.parse(localStorage.getItem('bancoModelos')) || [];
+            let bancoAdicionais = JSON.parse(localStorage.getItem('bancoAdicionais')) || [
+                { id: 'bastao', nome: 'Bastão de Apoio', preco: '15,00' }
+            ];
+            let coresTemp = [];
+            let editandoIndex = -1;
+            const modal = document.getElementById('modal-modelo');
+
+            if (!localStorage.getItem('bancoAdicionais')) {
+                localStorage.setItem('bancoAdicionais', JSON.stringify(bancoAdicionais));
+            }
+
+            // ==========================================
+            // 2. RENDERIZAR TABELAS NO ECRÃ
+            // ==========================================
+            function renderizarTabela() {
+                const tbody = document.getElementById('tabela-modelos-body');
+                if (!tbody) return;
+                tbody.innerHTML = '';
+
+                modelosAdmin.forEach((modelo, index) => {
+                    tbody.innerHTML += `
+                    <tr class="pedido-resumo" style="border-bottom: 1px solid #f1f5f9;">
+                        <td data-label="Imagem" style="text-align: center; padding: 12px;"><img src="${modelo.imagem || 'balao/balao-branco.png'}" width="50" style="border-radius: 8px; object-fit: cover; height: 50px;"></td>
+                        <td data-label="ID" style="text-align: center; padding: 12px;">${modelo.id}</td>
+                        <td data-label="Nome" style="text-align: center; padding: 12px;"><strong>${modelo.nome}</strong></td>
+                        <td data-label="Categoria" style="text-align: center; padding: 12px;">${modelo.categoria || '-'}</td>
+                        <td data-label="Preço" style="text-align: center; padding: 12px;">R$ ${modelo.preco}</td>
+                        <td data-label="Status" style="text-align: center; padding: 12px;"><span class="status-badge ${modelo.status === 'ativo' ? 'status-concluido' : 'status-aguardando'}">${modelo.status}</span></td>
+                        <td data-label="Ações" style="text-align: center; padding: 12px;">
+                            <i class="fa-solid fa-pen-to-square" style="color: #3b82f6; cursor: pointer; margin-right: 10px;" title="Editar Modelo" onclick="editarModelo(${index})"></i>
+                            <i class="fa-solid fa-trash" style="color: #ff6b6b; cursor: pointer;" title="Excluir Modelo" onclick="deletarModelo(${index})"></i>
+                        </td>
+                        <td></td>
+                    </tr>
+                `;
+                });
+            }
+
+            function renderizarTabelaAdicionais() {
+                const tabelaAdicionais = document.getElementById('tabela-adicionais');
+                if (!tabelaAdicionais) return;
+                tabelaAdicionais.innerHTML = '';
+
+                bancoAdicionais.forEach((adicional, index) => {
+                    let posText = adicional.posicao === 'atras' ? 'Atrás' : (adicional.posicao === 'dentro' ? 'Dentro' : 'Frente');
+                    tabelaAdicionais.innerHTML += `
+                    <tr class="pedido-resumo" style="border-bottom: 1px solid #f1f5f9;">
+                        <td data-label="Nome" style="text-align: center; padding: 12px;"><strong>${adicional.nome}</strong> <br><small style="color:#666;">(${posText})</small></td>
+                        <td data-label="Preço" style="text-align: center; padding: 12px;">R$ ${adicional.preco}</td>
+                        <td data-label="Ações" style="text-align: center; padding: 12px;">
+                            <i class="fa-solid fa-pen-to-square" style="color: #3b82f6; cursor: pointer; margin-right: 10px;" title="Editar Adicional" onclick="editarAdicional(${index})"></i>
+                            <i class="fa-solid fa-trash" style="color: #ff6b6b; cursor: pointer;" title="Excluir Adicional" onclick="deletarAdicional(${index})"></i>
+                        </td>
+                        <td></td>
+                    </tr>
+                `;
+                });
+            }
+
+            // ==========================================
+            // 3. CONTROLAR OS MODAIS (POP-UPS)
+            // ==========================================
+            function carregarAdicionaisNoModalModelo(modeloAtual = null) {
+                const container = document.getElementById('container-adicionais-modelo');
+                if (!container) return;
+                container.innerHTML = '';
+
+                let todosAdicionais = [...bancoAdicionais];
+                if (modeloAtual && modeloAtual.adicionais) {
+                    modeloAtual.adicionais.forEach(modAdc => {
+                        if (!todosAdicionais.find(a => a.id === modAdc.id)) {
+                            todosAdicionais.push(modAdc);
+                        }
+                    });
+                }
+
+                if (todosAdicionais.length === 0) {
+                    container.innerHTML = '<p style="font-size: 13px; color: #999; text-align: center; padding: 10px;">Nenhum adicional cadastrado ainda.</p>';
+                    return;
+                }
+
+                let htmlCards = '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">';
+                todosAdicionais.forEach(adc => {
+                    let precoAtual = adc.preco;
+                    let isChecked = '';
+                    if (modeloAtual && modeloAtual.adicionais) {
+                        const encontrado = modeloAtual.adicionais.find(a => a.id === adc.id);
+                        if (encontrado) {
+                            precoAtual = encontrado.preco;
+                            isChecked = 'checked';
+                        }
+                    }
+
+                    htmlCards += `
+                    <div style="border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; background: #f8fafc; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                            <input type="checkbox" class="chk-adicional" value="${adc.id}" data-nome="${adc.nome}" data-posicao="${adc.posicao || 'frente'}" style="transform: scale(1.2);" ${isChecked}>
+                            <span style="font-weight: 600; font-size: 14px; color: #334155;">${adc.nome}</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
+                            <label style="font-size: 12px; color: #64748b;">Preço:</label>
+                            <input type="text" class="input-preco-adicional" id="preco-adc-${adc.id}" value="${precoAtual}" style="padding: 4px; border: 1px solid #ccc; border-radius: 4px; width: 80px; font-size: 12px;">
+                        </div>
+                        <div style="border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+                            <label style="font-size: 11px; color: #64748b; margin-bottom: 5px; display: block;">📸 Foto com este adicional:</label>
+                            <input type="file" class="img-adicional-${adc.id}" accept="image/*" style="font-size: 11px; width: 100%;">
+                        </div>
+                    </div>
+                `;
+                });
+                htmlCards += '</div>';
+                container.innerHTML = htmlCards;
+            }
+
+            function abrirModal() {
+                editandoIndex = -1;
+                document.querySelector('#modal-modelo h2').innerText = 'Novo Modelo';
+                if (document.getElementById('input-id')) {
+                    document.getElementById('input-id').value = '';
+                    document.getElementById('input-id').disabled = false;
+                }
+                document.getElementById('input-nome').value = '';
+                document.getElementById('input-categoria').value = '';
+                document.getElementById('input-preco').value = '';
+                
+                if (document.getElementById('preview-imagem')) {
+                    document.getElementById('preview-imagem').src = '';
+                    document.getElementById('preview-imagem').style.display = 'none';
+                }
+                if (document.getElementById('upload-text')) {
+                    document.getElementById('upload-text').style.display = 'block';
+                }
+
+                coresTemp = [];
+                if (typeof atualizarListaCores === 'function') atualizarListaCores();
+                carregarAdicionaisNoModalModelo();
+                if (modal) modal.style.display = 'flex';
+            }
+            
+            function fecharModal() {
+                if (modal) modal.style.display = 'none';
+            }
+
+            function editarModelo(index) {
+                const modelo = modelosAdmin[index];
+                document.querySelector('#modal-modelo h2').innerText = 'Editar Modelo';
+                
+                // Preenche os campos principais
+                document.getElementById('input-id').value = modelo.id;
+                document.getElementById('input-id').disabled = true; // ID no pode mudar
+                document.getElementById('input-nome').value = modelo.nome;
+                document.getElementById('input-categoria').value = modelo.categoria;
+                document.getElementById('input-preco').value = modelo.preco;
+                document.getElementById('input-status').value = modelo.status;
+                
+                // Preenche a imagem principal
+                const previewImagem = document.getElementById('preview-imagem');
+                const uploadText = document.getElementById('upload-text');
+                if (modelo.imagem && previewImagem && uploadText) {
+                    previewImagem.src = modelo.imagem;
+                    previewImagem.style.display = 'block';
+                    uploadText.style.display = 'none';
+                }
+
+                // Carrega as cores
+                coresTemp = modelo.cores ? JSON.parse(JSON.stringify(modelo.cores)) : [];
+                if (typeof atualizarListaCores === 'function') atualizarListaCores();
+
+                // Carrega os adicionais disponíveis na tela
+                carregarAdicionaisNoModalModelo(modelo);
+
+                editandoIndex = index;
+                document.getElementById('modal-modelo').style.display = 'flex';
+            }
+
+            function salvarModelo() {
+                const nome = document.getElementById('input-nome').value;
+                const categoria = document.getElementById('input-categoria').value;
+                const preco = document.getElementById('input-preco').value;
+                const status = document.getElementById('input-status').value;
+
+                if (!nome || !preco) {
+                    alert('Nome e preço são obrigatórios!');
+                    return;
+                }
+
+                let modelo = {
+                    nome: nome,
+                    categoria: categoria,
+                    preco: preco,
+                    status: status,
+                    cores: coresTemp
+                };
+
+                const previewImagem = document.getElementById('preview-imagem');
+                if (previewImagem && previewImagem.src && !previewImagem.src.includes('undefined')) {
+                    modelo.imagem = previewImagem.src;
+                }
+
+                // Salva adicionais selecionados
+                const adicionaisCheck = document.querySelectorAll('.chk-adicional:checked');
+                modelo.adicionais = [];
+                adicionaisCheck.forEach(chk => {
+                    const adcId = chk.value;
+                    const precoInput = document.getElementById('preco-adc-' + adcId) ? document.getElementById('preco-adc-' + adcId).value : '0,00';
+                    modelo.adicionais.push({
+                        id: adcId,
+                        nome: chk.getAttribute('data-nome'),
+                        preco: precoInput,
+                        posicao: chk.getAttribute('data-posicao')
+                    });
+                });
+
+                if (editandoIndex > -1) {
+                    modelo.id = modelosAdmin[editandoIndex].id;
+                    if(!modelo.imagem) modelo.imagem = modelosAdmin[editandoIndex].imagem;
+                    modelosAdmin[editandoIndex] = { ...modelosAdmin[editandoIndex], ...modelo };
+                    alert('Modelo atualizado com sucesso!');
+                } else {
+                    modelo.id = document.getElementById('input-id').value || 'mod_' + Date.now();
+                    modelosAdmin.push(modelo);
+                    alert('Modelo criado com sucesso!');
+                }
+
+                localStorage.setItem('bancoModelos', JSON.stringify(modelosAdmin));
+                renderizarTabela();
+                fecharModal();
+            }
+
+            window.editarAdicional = function(index) {
+                const adicional = bancoAdicionais[index];
+                document.getElementById('modal-adicional-title').innerText = 'Editar Adicional';
+                if (document.getElementById('input-adicional-nome')) document.getElementById('input-adicional-nome').value = adicional.nome;
+                if (document.getElementById('input-adicional-preco')) document.getElementById('input-adicional-preco').value = adicional.preco;
+                if (document.getElementById('input-adicional-posicao')) document.getElementById('input-adicional-posicao').value = adicional.posicao || 'frente';
+                if (document.getElementById('edit-adicional-index')) document.getElementById('edit-adicional-index').value = index;
+                
+                const m = document.getElementById('modal-adicional');
+                if (m) m.style.display = 'flex';
+            };
+
+            window.abrirModalAdicional = function() {
+                document.getElementById('modal-adicional-title').innerText = 'Novo Adicional';
+                if (document.getElementById('input-adicional-nome')) document.getElementById('input-adicional-nome').value = '';
+                if (document.getElementById('input-adicional-preco')) document.getElementById('input-adicional-preco').value = '';
+                if (document.getElementById('input-adicional-posicao')) document.getElementById('input-adicional-posicao').value = 'frente';
+                if (document.getElementById('edit-adicional-index')) document.getElementById('edit-adicional-index').value = '-1';
+                
+                const m = document.getElementById('modal-adicional');
+                if (m) m.style.display = 'flex';
+                else console.error("Modal adicional não encontrado!");
+            };
+            window.fecharModalAdicional = function() {
+                const m = document.getElementById('modal-adicional');
+                if (m) m.style.display = 'none';
+            };
+            window.salvarAdicional = function() {
+                const nome = document.getElementById('input-adicional-nome').value;
+                const preco = document.getElementById('input-adicional-preco').value;
+                const posicao = document.getElementById('input-adicional-posicao') ? document.getElementById('input-adicional-posicao').value : 'frente';
+                const editIndex = parseInt(document.getElementById('edit-adicional-index').value);
+
+                if (!nome || !preco) {
+                    alert('Atenção: Preencha o nome e o valor do adicional!');
+                    return;
+                }
+
+                if (editIndex > -1) {
+                    bancoAdicionais[editIndex].nome = nome;
+                    bancoAdicionais[editIndex].preco = preco;
+                    bancoAdicionais[editIndex].posicao = posicao;
+                    alert('Adicional atualizado com sucesso!');
+                } else {
+                    const novoAdicional = {
+                        id: 'adc_' + Date.now(),
+                        nome: nome,
+                        preco: preco,
+                        posicao: posicao
+                    };
+                    bancoAdicionais.push(novoAdicional);
+                    alert('Adicional salvo com sucesso!');
+                }
+
+                localStorage.setItem('bancoAdicionais', JSON.stringify(bancoAdicionais));
+                
+                renderizarTabelaAdicionais();
+                window.fecharModalAdicional();
+            };
+
+            window.deletarModelo = function(index) {
+                if (confirm('Tem certeza que deseja excluir este modelo?')) {
+                    modelosAdmin.splice(index, 1);
+                    localStorage.setItem('bancoModelos', JSON.stringify(modelosAdmin));
+                    renderizarTabela();
+                }
+            };
+
+            window.deletarAdicional = function(index) {
+                if (confirm('Tem certeza que deseja excluir este adicional?')) {
+                    bancoAdicionais.splice(index, 1);
+                    localStorage.setItem('bancoAdicionais', JSON.stringify(bancoAdicionais));
+                    renderizarTabelaAdicionais();
+                }
+            };
+
+            // Setup inicial
+            renderizarTabela();
+            renderizarTabelaAdicionais();
+        </script>
+</body>
+</html>
+

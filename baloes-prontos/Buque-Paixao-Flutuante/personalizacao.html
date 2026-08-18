@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar Buquê Paixão Flutuante - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="../../logo.ico">
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @media (min-width: 900px) {
+            .customize-page {
+                max-width: 1400px !important;
+            }
+            .customize-preview {
+                width: 65% !important;
+            }
+            .customize-controls {
+                width: 35% !important;
+                flex: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="../../logo.svg" alt="Arte Balão" id="logo-site">
+            <a href="../../index.html" class="logo-link">
+                <span class="logo-title">ARTE BALÃO</span>
+                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+            </a>
+        </div>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="../../index.html">Início</a></li>
+                <li><a href="../../modelos.html" class="active">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="../../login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            <a href="../../meus-pedidos.html" class="action-icon cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="menu-icon" id="open-menu-btn" style="cursor: pointer;">
+            <i class="fa-solid fa-bars" style="font-size: 24px; color: var(--cor-texto-escuro);"></i>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+            <div class="menu-header">
+                <span class="menu-title">Menu</span>
+                <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <ul class="menu-links">
+                <li><a href="../../index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="../../eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
+                <li><a href="../../modelos.html" class="active"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
+                <li><a href="../../meus-pedidos.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
+                <li><a href="../../login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
+            </ul>
+        </nav>
+
+    <main class="customize-page">
+        <div class="customize-header">
+            <h1>Personalize o seu Kit de balões para topo de bolo</h1>
+            <a href="../../modelos.html" class="back-link">← Voltar para modelos</a>
+        </div>
+
+        <div class="customize-container">
+            <div class="customize-controls">
+                
+                <div class="control-group">
+                    <label>Cor do Kit</label>
+                    <div class="color-picker" id="container-cores-balao">
+                    </div>
+                </div>
+
+                <div class="option-box" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 5px;">Personalize seu Texto</h3>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Use emojis! 🎈 Arraste os textos em cima da foto do balão para posicionar.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <label style="font-size: 12px; font-weight: bold; color: #ff6b81; display: block; margin-bottom: 5px;">Linha 1</label>
+                            <input type="text" id="texto-linha-1" placeholder="Ex: Feliz Aniversário 🎉" maxlength="25" style="width: 100%; margin-bottom: 8px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <select id="fonte-linha-1" style="flex: 1; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                                    <option value="'Inter', sans-serif">Fonte Reta (Arial)</option>
+<option value="'Great Vibes', cursive">Fonte Desenhada</option>
+<option value="'Amatic SC', cursive">Amatic SC</option>
+<option value="'The Skinny', 'Shadows Into Light', cursive">The Skinny</option>
+<option value="'Rae Dunn Font', 'Sue Ellen Francisco', cursive">Rae Dunn Font</option>
+<option value="'Brittany Signature', 'Herr Von Muellerhoff', cursive">Brittany Signature</option>
+<option value="'Autography', 'Alex Brush', cursive">Autography</option>
+<option value="'Photographs', 'Qwigley', cursive">Photographs</option>
+<option value="'Billion Dreams', 'Pinyon Script', cursive">Billion Dreams</option>
+<option value="'Magnolia Sky', 'Rochester', cursive">Magnolia Sky</option>
+<option value="'Amarillo', 'Dancing Script', cursive">Amarillo</option>
+<option value="'Baksoda', 'Cookie', cursive">Baksoda</option>
+<option value="'Hello Honey', 'Parisienne', cursive">Hello Honey</option>
+<option value="'Amsterdam', 'Tangerine', cursive">Amsterdam</option>
+<option value="'Madina Script', 'Sacramento', cursive">Madina Script</option>
+<option value="'Octavia Script', 'Grand Hotel', cursive">Octavia Script</option>
+<option value="'Better Saturday', 'Caveat', cursive">Better Saturday</option>
+                                </select>
+                                <input type="color" id="cor-linha-1" value="#000000" style="width: 40px; height: 36px; padding: 0; border: none; border-radius: 4px; cursor: pointer;">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 12px; color: #64748b;">A</span>
+                                <input type="range" id="tamanho-linha-1" min="16" max="60" value="28" style="flex: 1; accent-color: #ff6b81;">
+                                <span style="font-size: 18px; font-weight: bold; color: #64748b;">A</span>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <label style="font-size: 12px; font-weight: bold; color: #ff6b81; display: block; margin-bottom: 5px;">Linha 2</label>
+                            <input type="text" id="texto-linha-2" placeholder="Ex: Ana Maria" maxlength="25" style="width: 100%; margin-bottom: 8px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <select id="fonte-linha-2" style="flex: 1; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                                    <option value="'Inter', sans-serif">Fonte Reta (Arial)</option>
+<option value="'Great Vibes', cursive">Fonte Desenhada</option>
+<option value="'Amatic SC', cursive">Amatic SC</option>
+<option value="'The Skinny', 'Shadows Into Light', cursive">The Skinny</option>
+<option value="'Rae Dunn Font', 'Sue Ellen Francisco', cursive">Rae Dunn Font</option>
+<option value="'Brittany Signature', 'Herr Von Muellerhoff', cursive">Brittany Signature</option>
+<option value="'Autography', 'Alex Brush', cursive">Autography</option>
+<option value="'Photographs', 'Qwigley', cursive">Photographs</option>
+<option value="'Billion Dreams', 'Pinyon Script', cursive">Billion Dreams</option>
+<option value="'Magnolia Sky', 'Rochester', cursive">Magnolia Sky</option>
+<option value="'Amarillo', 'Dancing Script', cursive">Amarillo</option>
+<option value="'Baksoda', 'Cookie', cursive">Baksoda</option>
+<option value="'Hello Honey', 'Parisienne', cursive">Hello Honey</option>
+<option value="'Amsterdam', 'Tangerine', cursive">Amsterdam</option>
+<option value="'Madina Script', 'Sacramento', cursive">Madina Script</option>
+<option value="'Octavia Script', 'Grand Hotel', cursive">Octavia Script</option>
+<option value="'Better Saturday', 'Caveat', cursive">Better Saturday</option>
+                                </select>
+                                <input type="color" id="cor-linha-2" value="#000000" style="width: 40px; height: 36px; padding: 0; border: none; border-radius: 4px; cursor: pointer;">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 12px; color: #64748b;">A</span>
+                                <input type="range" id="tamanho-linha-2" min="16" max="60" value="28" style="flex: 1; accent-color: #ff6b81;">
+                                <span style="font-size: 18px; font-weight: bold; color: #64748b;">A</span>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <label style="font-size: 12px; font-weight: bold; color: #ff6b81; display: block; margin-bottom: 5px;">Linha 3</label>
+                            <input type="text" id="texto-linha-3" placeholder="Ex: 30 Anos 🎂" maxlength="25" style="width: 100%; margin-bottom: 8px; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                <select id="fonte-linha-3" style="flex: 1; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                                    <option value="'Inter', sans-serif">Fonte Reta (Arial)</option>
+<option value="'Great Vibes', cursive">Fonte Desenhada</option>
+<option value="'Amatic SC', cursive">Amatic SC</option>
+<option value="'The Skinny', 'Shadows Into Light', cursive">The Skinny</option>
+<option value="'Rae Dunn Font', 'Sue Ellen Francisco', cursive">Rae Dunn Font</option>
+<option value="'Brittany Signature', 'Herr Von Muellerhoff', cursive">Brittany Signature</option>
+<option value="'Autography', 'Alex Brush', cursive">Autography</option>
+<option value="'Photographs', 'Qwigley', cursive">Photographs</option>
+<option value="'Billion Dreams', 'Pinyon Script', cursive">Billion Dreams</option>
+<option value="'Magnolia Sky', 'Rochester', cursive">Magnolia Sky</option>
+<option value="'Amarillo', 'Dancing Script', cursive">Amarillo</option>
+<option value="'Baksoda', 'Cookie', cursive">Baksoda</option>
+<option value="'Hello Honey', 'Parisienne', cursive">Hello Honey</option>
+<option value="'Amsterdam', 'Tangerine', cursive">Amsterdam</option>
+<option value="'Madina Script', 'Sacramento', cursive">Madina Script</option>
+<option value="'Octavia Script', 'Grand Hotel', cursive">Octavia Script</option>
+<option value="'Better Saturday', 'Caveat', cursive">Better Saturday</option>
+                                </select>
+                                <input type="color" id="cor-linha-3" value="#000000" style="width: 40px; height: 36px; padding: 0; border: none; border-radius: 4px; cursor: pointer;">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 12px; color: #64748b;">A</span>
+                                <input type="range" id="tamanho-linha-3" min="16" max="60" value="28" style="flex: 1; accent-color: #ff6b81;">
+                                <span style="font-size: 18px; font-weight: bold; color: #64748b;">A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-box" style="margin-bottom: 20px;">
+                    <h3 style="margin-bottom: 5px;">Observações do Pedido</h3>
+                    <textarea id="observacao-pedido" placeholder="Alguma observação especial? (ex: Entregar à tarde, cores mescladas...)" style="width: 100%; min-height: 80px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; resize: vertical; font-family: inherit;"></textarea>
+                </div>
+
+                <div class="option-box" id="box-adicionais-cliente" style="display: none; border: 1px solid #ff6b81; border-radius: 8px; padding: 15px;">
+                    <h3 style="color: #ff6b81; margin-bottom: 10px;">Adicionais Opcionais</h3>
+                    <div id="container-adicionais-cliente" style="display: flex; flex-direction: column; gap: 10px;"></div>
+                </div>
+
+            </div>
+
+            <style>
+                .texto-arrastavel {
+                    position: absolute;
+                    cursor: grab;
+                    user-select: none;
+                    white-space: nowrap;
+                    font-size: 28px;
+                    text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
+                    transform: translate(-50%, -50%); /* Deixa o mouse bem no meio da palavra */
+                    padding: 5px 10px;
+                    border: 2px dashed transparent;
+                    z-index: 10;
+                    transition: border 0.2s;
+                }
+                .texto-arrastavel:hover { border-color: #ff6b81; border-radius: 8px; background: rgba(255,255,255,0.2); }
+                .texto-arrastavel:active { cursor: grabbing; border-color: #3b82f6; }
+            </style>
+
+            <div class="customize-preview">
+                <div class="balloon-wrapper" id="area-balao" style="position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; aspect-ratio: 1 / 1; width: 100%; max-width: 1000px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); background: #f8fafc;">
+                    
+                    <div id="overlays-atras" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></div>
+
+                    <img src="Kit-de-baloes-para-topo-de-bolo-vermelho.jpg" alt="Balão Base" id="imagem-balao" style="width: 100%; height: 100%; object-fit: contain; display: block; user-select: none; pointer-events: none; position: relative; z-index: 2; border-radius: 12px;">                 
+                    <div id="overlays-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5;"></div>
+                    
+                    <div id="preview-linha-1" class="texto-arrastavel" style="top: 35%; left: 50%;"></div>
+                    <div id="preview-linha-2" class="texto-arrastavel" style="top: 50%; left: 50%;"></div>
+                    <div id="preview-linha-3" class="texto-arrastavel" style="top: 65%; left: 50%;"></div>
+                </div>
+
+                <div class="action-buttons" style="margin-top: 20px;">
+                    <button type="button" id="btn-comprar" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 16px; border-radius: 8px;">Avançar para o Resumo <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <p class="disclaimer" style="text-align: center; margin-top: 15px;">Dica: As cores podem sofrer pequenas variações na impressão.</p>
+            </div>
+        </div>
+    </main>
+    <script src="../../script.js"></script>
+</body>
+</html>

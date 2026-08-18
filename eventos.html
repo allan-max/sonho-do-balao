@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.svg" alt="Arte Balão" id="logo-site">
+            <a href="index.html" class="logo-link">
+                <span class="logo-title">ARTE BALÃO</span>
+                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+            </a>
+        </div>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="index.html" >Início</a></li>
+                <li><a href="modelos.html">Catálogo</a></li>
+                <li><a href="eventos.html" class="active">Eventos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="https://wa.me/5532991193994" target="_blank">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            <a href="meus-pedidos.html" class="action-icon cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="menu-icon" id="open-menu-btn" style="cursor: pointer;">
+            <i class="fa-solid fa-bars" style="font-size: 24px; color: var(--cor-texto-escuro);"></i>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html" ><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="eventos.html" class="active"><i class="fa-solid fa-star"></i> Eventos</a></li>
+            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
+            <li><a href="meus-pedidos.html"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
+        </ul>
+    </nav>
+
+    <main class="eventos-page">
+        
+        <section class="eventos-hero">
+            <div class="eventos-hero-content">
+                <span class="badge-destaque"><i class="fa-solid fa-star" style="color: #FADB5F;"></i> TRANSFORMAMOS MOMENTOS EM MEMÓRIAS</span>
+                <h1>Criamos cenários.<br>Celebramos histórias.<br><span class="highlight-cursive">Realizamos sonhos.</span></h1>
+                <div class="hero-divider" style="justify-content: flex-start; margin: 16px 0;"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <p class="hero-text" style="text-align: left; margin-bottom: 24px;">Mais do que decoração com balões, criamos experiências únicas e personalizadas para cada ocasião especial da sua vida.</p>
+                <a href="https://wa.me/5532991193994" target="_blank" style="text-decoration: none;">
+                    <button class="btn btn-primary" style="width: auto;">Fale com nossa equipe <i class="fa-brands fa-whatsapp"></i></button>
+                </a>
+            </div>
+            <div class="eventos-hero-image" style="display: flex; justify-content: center; height: 560px;">
+                <video style="border-radius: 20px; max-width: 100%; height: 100%; object-fit: cover;" controls autoplay muted>
+                    <source src="videos/videoinicial.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+            </div>
+        </section>
+
+        <section class="occasions" id="ocasioes" style="background: var(--cor-fundo); padding-top: 20px;">
+            <div class="occasions-header">
+                <i class="fa-solid fa-bow-ribbon occasion-icon"></i>
+                <h2>Para cada ocasião, uma criação única</h2>
+                <p>Decorações personalizadas que combinam com o seu momento.</p>
+            </div>
+
+
+            <div class="como-solicitar-container" style="max-width: 1000px; margin: 60px auto 20px; padding: 40px 30px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left;">
+                <h3 style="text-align: center; margin-bottom: 40px; color: var(--cor-texto-escuro); font-size: 28px;">Como solicitar sua decoração?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: rgba(37, 211, 102, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fa-brands fa-whatsapp" style="font-size: 40px; color: #25D366;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 10px; font-size: 18px;">1. Nos chame no WhatsApp</h4>
+                        <p style="font-size: 15px; color: var(--cor-texto-medio); line-height: 1.5;">Conte qual é a ocasião, a data e o local do seu evento. Se tiver referências do que sonha, nos envie!</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: rgba(250, 219, 95, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="font-size: 36px; color: #e6c547;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 10px; font-size: 18px;">2. Criamos o Projeto</h4>
+                        <p style="font-size: 15px; color: var(--cor-texto-medio); line-height: 1.5;">Elaboramos um orçamento personalizado, alinhando as paletas de cores e os modelos ideais de balões.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; background: rgba(225, 48, 108, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                            <i class="fa-solid fa-camera" style="font-size: 36px; color: #E1306C;"></i>
+                        </div>
+                        <h4 style="margin-bottom: 10px; font-size: 18px;">3. Realizamos o Sonho</h4>
+                        <p style="font-size: 15px; color: var(--cor-texto-medio); line-height: 1.5;">Nossa equipe vai até o local, monta tudo com perfeição e deixa o cenário incrível e pronto para as fotos!</p>
+                    </div>
+                </div>
+                
+                <div class="como-solicitar-videos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;">
+                    <video style="width: 100%; border-radius: 20px; object-fit: cover; aspect-ratio: 9/16; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" controls muted>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        Seu navegador não suporta o vídeo.
+                    </video>
+                    <video style="width: 100%; border-radius: 20px; object-fit: cover; aspect-ratio: 9/16; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" controls muted>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                        Seu navegador não suporta o vídeo.
+                    </video>
+                </div>
+                
+                <div style="display: flex; justify-content: center; margin-top: 40px;">
+                    <a href="https://wa.me/5532991193994" target="_blank" style="text-decoration: none;">
+                        <button class="btn btn-primary" style="width: auto;">Quero um orçamento <i class="fa-brands fa-whatsapp"></i></button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="occasions-header" style="margin-bottom: 20px;">
+                <i class="fa-brands fa-instagram occasion-icon" style="color: #E1306C;"></i>
+                <h2>Nosso Instagram</h2>
+                <p>Acompanhe nossos trabalhos mais recentes no @artebalaojf</p>
+            </div>
+            
+            <!-- INÃCIO DO WIDGET DO INSTAGRAM -->
+            <div class="instagram-widget-container" style="margin-top: 40px; margin-bottom: 30px; min-height: 300px; display: flex; justify-content: center; align-items: center; border: 2px dashed #ccc; border-radius: 16px;">
+                <div style="text-align: center; padding: 20px; color: #666;">
+                    <i class="fa-brands fa-instagram" style="font-size: 32px; color: #E1306C; margin-bottom: 10px;"></i>
+                    <p style="font-weight: bold;">Seu Feed do Instagram aparecerá aqui!</p>
+                    <p style="font-size: 14px;">(Siga as instruções para colocar o código do Elfsight aqui)</p>
+                </div>
+            </div>
+            <!-- FIM DO WIDGET DO INSTAGRAM -->
+
+            <a href="https://www.instagram.com/artebalaojf/" target="_blank" style="text-decoration: none;">
+                <button class="btn btn-outline-secondary" style="margin: 0 auto; width: auto; color: #E1306C; border-color: #E1306C;">Ver no Instagram <i class="fa-brands fa-instagram"></i></button>
+            </a>
+        </section>
+
+        <section class="testimonial-banner">
+            <i class="fa-solid fa-quote-left" style="font-size: 32px; color: rgba(255,255,255,0.8);"></i>
+            <h2>â€œCada detalhe foi pensado com amor e cuidado. Superaram todas as nossas expectativas!â€</h2>
+            <div class="testimonial-avatars">
+                <div class="avatar-group">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente 1">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 2">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente 3">
+                </div>
+                <span style="font-size: 13px; font-weight: 500;">Mais de 500 clientes felizes</span>
+            </div>
+            <div class="arrows">
+                <i class="fa-solid fa-arrow-left-long"></i>
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </div>
+        </section>
+
+        <section class="eventos-cta">
+            <div class="eventos-cta-img">
+                <img src="balao/inicial.png" alt="Decoração Evento CTA">
+            </div>
+            <div class="eventos-cta-content">
+                <span class="badge-destaque"><i class="fa-solid fa-star" style="color: #FADB5F;"></i> VAMOS CRIAR ALGO INCRÃVEL JUNTOS?</span>
+                <h2>Seu evento merece<br><span class="highlight-cursive">ser inesquecível.</span></h2>
+                <div class="hero-divider" style="justify-content: flex-start; margin: 16px 0;"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <p class="hero-text" style="text-align: left; margin-bottom: 24px; color: var(--cor-texto-medio);">Conte pra gente sobre sua ideia e receba um orçamento personalizado.</p>
+                <button class="btn btn-primary" style="width: auto; margin-bottom: 16px;">Solicite seu orçamento <i class="fa-regular fa-pen-to-square"></i></button>
+                <br>
+                <a href="https://wa.me/5532991193994" target="_blank" style="color: var(--cor-secundaria); font-weight: 600; text-decoration: none; font-size: 15px;">Falar com especialista <i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.svg" alt="Arte Balão" id="logo-site">
+            <a href="index.html" class="logo-link">
+                <span class="logo-title">ARTE BALÃO</span>
+                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+            </a>
+        </div>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="index.html" class="active">Início</a></li>
+                <li><a href="modelos.html">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="https://wa.me/5532991193994" target="_blank">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            <a href="meus-pedidos.html" class="action-icon cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="menu-icon" id="open-menu-btn" style="cursor: pointer;">
+            <i class="fa-solid fa-bars" style="font-size: 24px; color: var(--cor-texto-escuro);"></i>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
+            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
+            <li><a href="meus-pedidos.html"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge-destaque"><i class="fa-solid fa-star" style="color: #FADB5F;"></i> TOP 1 EM BALÕES PERSONALIZADOS</span>
+                <h1 class="hero-title">Seu momento.<br>Sua história.<br><span class="highlight-serif">Nossa arte.</span></h1>
+                <div class="hero-divider"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <p class="hero-text">Escolha o modelo, combine suas cores favoritas e personalize com a mensagem que desejar.</p>
+                <div class="hero-buttons">
+                    <a href="modelos.html" style="text-decoration: none;">
+                        <button class="btn btn-primary">Personalizar meu balão <i class="fa-solid fa-pen-to-square"></i></button>
+                    </a>
+                    <a href="modelos.html" style="text-decoration: none;">
+                        <button class="btn btn-outline-secondary">Ver catálogo completo <i class="fa-solid fa-arrow-right"></i></button>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="balao/inicial.png" alt="Buquê de Balões Personalizados" class="">
+            </div>
+        </section>
+
+        <section class="trust-banner">
+            <div class="trust-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <p>Compra<br>100% Segura</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-truck"></i>
+                <p>Entregamos<br>com cuidado</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-regular fa-star"></i>
+                <p>5/5<br>Avaliações</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-regular fa-heart"></i>
+                <p>Feito com amor<br>em cada detalhe</p>
+            </div>
+        </section>
+
+
+
+        <section class="occasions" id="ocasioes">
+            <div class="occasions-header">
+                <i class="fa-solid fa-bow-ribbon occasion-icon"></i>
+                <h2>Ocasiões mais pedidas</h2>
+                <p>Encontre o balão perfeito para celebrar o que realmente importa.</p>
+            </div>
+            <div class="occasions-grid">
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/feliz.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><i class="fa-solid fa-cake-candles"></i></div>
+                        <h3>Aniversário</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/formatura.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3>Formatura</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/coracao-vermelho.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><i class="fa-regular fa-heart"></i></div>
+                        <h3>Romântico</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/bubble-branco.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><i class="fa-solid fa-briefcase"></i></div>
+                        <h3>Corporativo</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/balão-infantil.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><span style="font-size: 24px; font-style: normal;">ðŸ§¸</span></div>
+                        <h3>Infantil</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+                <a href="modelos.html" class="occasion-card">
+                    <div class="card-bg" style="background-image: url('balao/balão-infantil.png');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-circle"><i class="fa-solid fa-baby-carriage"></i></div>
+                        <h3>Maternidade</h3>
+                        <i class="fa-solid fa-arrow-right arrow-icon"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>O que nossos clientes dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">â­â­â­â­â­</div>
+                    <p>"O balão ficou simplesmente perfeito! Deu um toque mágico na festa da minha filha. O atendimento
+                        foi impecável e a entrega super rápida!"</p>
+                    <strong>- Mariana S.</strong>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">â­â­â­â­â­</div>
+                    <p>"Comprei um balão de coração para o meu namorado e ele amou. A personalização ficou linda e o
+                        balão durou dias intacto. Recomendo muito!"</p>
+                    <strong>- Carlos M.</strong>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="brand-traits">
+        <div class="trait-item">
+            <i class="fa-solid fa-palette trait-icon"></i>
+            <h4>Design autoral</h4>
+            <p>Criações que levam a<br>essência da Arte Balão.</p>
+        </div>
+        <div class="trait-item">
+            <i class="fa-solid fa-ribbon trait-icon"></i>
+            <h4>Acabamento impecável</h4>
+            <p>Cuidado em cada detalhe<br>do início ao fim.</p>
+        </div>
+        <div class="trait-item">
+            <i class="fa-solid fa-wand-magic-sparkles trait-icon"></i>
+            <h4>Produção especializada</h4>
+            <p>Experiência e técnica<br>em cada criação.</p>
+        </div>
+        <div class="trait-item">
+            <i class="fa-solid fa-gift trait-icon"></i>
+            <h4>Curadoria Arte Balão</h4>
+            <p>Harmonia, estética e cuidado<br>em cada composição.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-info">
+            <i class="fa-solid fa-location-dot footer-icon"></i>
+            <div>
+                <p><strong>Av. Olegário Maciel 1767 </strong></p>
+                <p>Paineiras - Juiz de Fora/MG</p>
+            </div>
+        </div>
+        <div class="footer-info">
+            <i class="fa-solid fa-clock footer-icon"></i>
+            <div>
+                <p><strong>Segunda a Sábado</strong></p>
+                <p>9h às 18h</p>
+                <p style="margin-top: 8px; font-size: 0.85em; opacity: 0.8;">Desenvolvido por Allan Simão</p>
+            </div>
+        </div>
+        <div class="footer-info">
+            <i class="fa-brands fa-whatsapp footer-icon"></i>
+            <div>
+                <p><strong>+55 (32) 99119-3994</strong></p>
+                <p>WhatsApp</p>
+            </div>
+        </div>
+            </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+

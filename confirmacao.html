@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revise seu pedido - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.svg" alt="Arte Balão" id="logo-site">
+            <a href="index.html" class="logo-link">
+                <span class="logo-title">ARTE BALÃO</span>
+                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+            </a>
+        </div>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="modelos.html">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="https://wa.me/5532991193994" target="_blank">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            <a href="meus-pedidos.html" class="action-icon cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="menu-icon" id="open-menu-btn" style="cursor: pointer;">
+            <i class="fa-solid fa-bars" style="font-size: 24px; color: var(--cor-texto-escuro);"></i>
+        </div>
+    </header>
+
+    <main class="confirm-page">
+        <h1>Revise seu pedido</h1>
+
+        <div class="summary-card">
+            <div class="summary-image" style="position: relative; overflow: hidden;">
+                <img src="balao/balao-branco.png" alt="Seu Balão" id="conf-imagem" style="width: 100%; display: block;">
+                <!-- Caixas invisíveis para receberem as 3 linhas na mesma posição -->
+                <div id="conf-preview-linha-1" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
+                <div id="conf-preview-linha-2" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
+                <div id="conf-preview-linha-3" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
+            </div>
+
+            <div class="summary-details">
+                <div class="detail-item">
+                    <span>Modelo</span>
+                    <strong id="conf-modelo">Carregando...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Cor do balão</span>
+                    <strong id="conf-cor">Carregando...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Cor da escrita</span>
+                    <strong id="conf-cor-texto">Carregando...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Texto</span>
+                    <strong id="conf-texto">Carregando...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Fonte</span>
+                    <strong id="conf-fonte">Carregando...</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Observação</span>
+                    <strong id="conf-observacao">Nenhuma</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Adicionais</span>
+                    <strong>Confetes, Laço, Base</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="pickup-section">
+            <h2>Dados para retirada</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="cliente-nome" placeholder="Ex: Ana Silva">
+                </div>
+                <div class="form-group">
+                    <label>Telefone (WhatsApp)</label>
+                    <input type="text" id="cliente-telefone" placeholder="(00) 00000-0000">
+                </div>
+
+                <div class="checkout-footer">
+                    <div class="total-price">
+                        <span>Total a pagar</span>
+                        <strong id="conf-preco">R$ 0,00</strong>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-pulse" id="btn-finalizar-pedido">Finalizar Pedido
+                        🎉</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+

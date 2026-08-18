@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - artebalao</title>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logo.svg" alt="Arte Balão" id="logo-site">
+            <a href="index.html" class="logo-link">
+                <span class="logo-title">ARTE BALÃO</span>
+                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+            </a>
+        </div>
+
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="modelos.html">Catálogo</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="#sobre">Sobre nós</a></li>
+                <li><a href="https://wa.me/5532991193994" target="_blank">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            <a href="meus-pedidos.html" class="active" class="action-icon cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+
+        <div class="menu-icon" id="open-menu-btn" style="cursor: pointer;">
+            <i class="fa-solid fa-bars" style="font-size: 24px; color: var(--cor-texto-escuro);"></i>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
+            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
+            <li><a href="meus-pedidos.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
+        </ul>
+    </nav>
+
+    <main class="meus-pedidos-page" style="min-height: 60vh; padding: 40px 20px; background-color: var(--cor-fundo);">
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <h1 class="page-title" style="text-align: center; color: var(--cor-primaria); font-size: 2.5rem; margin-bottom: 10px;">Meus Pedidos </h1>
+            <p class="subtitle" style="text-align: center; color: var(--cor-texto-medio); margin-bottom: 30px;">Acompanhe o status das suas personalizações.</p>
+            
+            <div id="lista-meus-pedidos" class="pedidos-grid" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- O JavaScript vai injetar os pedidos aqui -->
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
