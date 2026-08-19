@@ -473,19 +473,11 @@ const menuLinks = document.querySelector('.menu-links');
 const usuarioLogado = localStorage.getItem('usuarioLogado');
 
 if (usuarioLogado && menuLinks) {
-    let htmlMenu = `
-        <li><a href="index.html">Início</a></li>
-        <li><a href="modelos.html">Modelos de Balões</a></li>
-        <li><a href="meus-pedidos.html">Carrinho</a></li>
-    `;
-    
     if (usuarioLogado === 'admin') {
-        htmlMenu += `<li><a href="admin.html" style="color: var(--cor-primaria);">Painel Admin ⚙️</a></li>`;
+        const adminLi = document.createElement('li');
+        adminLi.innerHTML = `<a href="admin.html" style="color: var(--cor-primaria);"><i class="fa-solid fa-gear"></i> Painel Admin</a>`;
+        menuLinks.appendChild(adminLi);
     }
-    
-    htmlMenu += `<li><a href="#" id="btn-sair">Sair</a></li>`;
-    
-    menuLinks.innerHTML = htmlMenu;
     
     const btnSair = document.getElementById('btn-sair');
     if (btnSair) {
@@ -500,6 +492,19 @@ if (usuarioLogado && menuLinks) {
     const headerUserLinks = document.querySelectorAll('.header-actions a[href*="login.html"]');
     headerUserLinks.forEach(link => {
         link.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>';
+        link.title = 'Terminar Sessão';
+        link.href = '#';
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'index.html';
+        });
+    });
+
+    // Altera o link de login no menu mobile para "Terminar Sessão"
+    const mobileUserLinks = document.querySelectorAll('.menu-links a[href*="login.html"]');
+    mobileUserLinks.forEach(link => {
+        link.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i> Terminar Sessão';
         link.title = 'Terminar Sessão';
         link.href = '#';
         link.addEventListener('click', (e) => {
@@ -901,7 +906,6 @@ if (sumarioConfirmacao && window.location.pathname.includes('confirmacao.html'))
         const confImagem = document.getElementById('conf-imagem');
         if (confImagem) {
             confImagem.src = carrinho.imagem;
-            confImagem.style.objectFit = 'contain';
             if (carrinho.escalaImagem && carrinho.escalaImagem !== 'none') {
                 confImagem.style.transform = carrinho.escalaImagem;
                 confImagem.style.transformOrigin = 'center';
@@ -1344,8 +1348,8 @@ function carregarTabelaPedidos() {
 
         const escalaStyle = (pedido.escalaImagem && pedido.escalaImagem !== 'none') ? `transform: ${pedido.escalaImagem}; transform-origin: center;` : '';
         let htmlImagem = `
-            <div style="position: relative; width: 120px; height: 120px; border-radius: 10px; overflow: hidden; border: 1px solid #eee; flex-shrink: 0; background-color: #f9f9f9; container-type: inline-size; display: flex; justify-content: center; align-items: center;">
-                <img src="${pedido.imagem || 'balao/coracao-vermelho.png'}" style="width: 100%; height: 100%; object-fit: contain; display: block; ${escalaStyle}">
+            <div style="position: relative; width: 120px; border-radius: 10px; overflow: hidden; border: 1px solid #eee; flex-shrink: 0; background-color: #f9f9f9; container-type: inline-size;">
+                <img src="${pedido.imagem || 'balao/coracao-vermelho.png'}" style="width: 100%; display: block; ${escalaStyle}">
         `;
         if (pedido.linhasTexto && pedido.linhasTexto.length > 0) {
             pedido.linhasTexto.forEach(linha => {
@@ -1490,8 +1494,8 @@ function carregarMeusPedidos() {
         
         const escalaStyle = (pedido.escalaImagem && pedido.escalaImagem !== 'none') ? `transform: ${pedido.escalaImagem}; transform-origin: center;` : '';
         let htmlImagem = `
-            <div style="position: relative; width: 100px; height: 100px; border-radius: 8px; overflow: hidden; border: 1px solid #eee; flex-shrink: 0; background-color: #f9f9f9; container-type: inline-size; display: flex; justify-content: center; align-items: center;">
-                <img src="${pedido.imagem || 'balao/coracao-vermelho.png'}" style="width: 100%; height: 100%; object-fit: contain; display: block; ${escalaStyle}">
+            <div style="position: relative; width: 100px; border-radius: 8px; overflow: hidden; border: 1px solid #eee; flex-shrink: 0; background-color: #f9f9f9; container-type: inline-size;">
+                <img src="${pedido.imagem || 'balao/coracao-vermelho.png'}" style="width: 100%; display: block; ${escalaStyle}">
         `;
         if (pedido.linhasTexto && pedido.linhasTexto.length > 0) {
             pedido.linhasTexto.forEach(linha => {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso - artebalao</title>
     <link rel="icon" type="image/x-icon" href="logo.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -16,6 +16,23 @@
 
     <div id="fireworks-container"></div>
     <div id="msg-box" class="msg-box" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 9999;"></div>
+
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
+            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Catálogo</a></li>
+            <li><a href="em-desenvolvimento.html"><i class="fa-solid fa-circle-info"></i> Sobre nós</a></li>
+            <li><a href="em-desenvolvimento.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+            <li><a href="meus-pedidos.html" style="position: relative; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-cart-shopping"></i> Pedidos <span class="cart-count" style="position: relative; top: 0; right: 0; margin-left: 5px;">0</span></a></li>
+            <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
+        </ul>
+    </nav>
 
     <main class="login-premium-layout">
         
@@ -153,7 +170,7 @@
         </div>
 
     </main>
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=7"></script>
 </body>
 </html>
 

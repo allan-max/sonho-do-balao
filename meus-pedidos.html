@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Pedidos - artebalao</title>
     <link rel="icon" type="image/x-icon" href="logo.ico">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=7">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -33,8 +33,8 @@
         </nav>
 
         <div class="header-actions">
-            <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
+            
+            <a href="login.html" class="action-icon hide-on-mobile"><i class="fa-regular fa-user"></i></a>
             <a href="meus-pedidos.html" class="active" class="action-icon cart-icon">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span class="cart-count">0</span>
@@ -55,8 +55,10 @@
         <ul class="menu-links">
             <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
             <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
-            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
-            <li><a href="meus-pedidos.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Pedidos</a></li>
+            <li><a href="modelos.html"><i class="fa-solid fa-shapes"></i> Catálogo</a></li>
+            <li><a href="em-desenvolvimento.html"><i class="fa-solid fa-circle-info"></i> Sobre nós</a></li>
+            <li><a href="em-desenvolvimento.html"><i class="fa-solid fa-envelope"></i> Contato</a></li>
+            <li><a href="meus-pedidos.html" style="position: relative; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-cart-shopping"></i> Pedidos <span class="cart-count" style="position: relative; top: 0; right: 0; margin-left: 5px;">0</span></a></li>
             <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
         </ul>
     </nav>
@@ -71,7 +73,7 @@
             </div>
         </div>
     </main>
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=7"></script>
 </body>
 
 </html>
