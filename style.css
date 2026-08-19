@@ -978,7 +978,7 @@ input[type="text"], select { width: 100%; padding: 12px; border: 1px solid #ccc;
 .portfolio-card .play-btn-overlay { width: 60px; height: 60px; }
 .portfolio-card .play-btn-overlay i { font-size: 24px; }
 
-.testimonial-banner { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 80px 48px; text-align: center; position: relative; }
+.testimonial-banner { background-color: var(--cor-primaria); color: var(--cor-branco); padding: 80px 48px; text-align: center; position: relative; overflow-x: hidden; }
 .testimonial-banner h2 { font-family: var(--fonte-serif); font-style: italic; font-size: 28px; font-weight: 400; max-width: 700px; margin: 20px auto 30px; line-height: 1.4; }
 .testimonial-avatars { display: flex; align-items: center; justify-content: center; gap: 15px; }
 .avatar-group { display: flex; }
@@ -1319,6 +1319,7 @@ input[type="text"], select { width: 100%; padding: 12px; border: 1px solid #ccc;
 .product-colors {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 16px;
     flex-grow: 1;
@@ -1476,9 +1477,15 @@ input[type="text"], select { width: 100%; padding: 12px; border: 1px solid #ccc;
     .inspirations-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
-    .trust-catalog { flex-direction: column; gap: 16px; margin-top: 0; border-radius: 0; }
-    .trust-catalog .trust-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 16px; }
-    .products-grid-new { grid-template-columns: 1fr; }
+    .trust-catalog { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 0; border-radius: 0; padding: 16px; }
+    .trust-catalog .trust-item { border: none; padding: 0; }
+    .products-grid-new { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px;
+    }
+    .products-grid-new .product-card-new { padding: 12px; }
+    .products-grid-new .product-card-new img { height: 150px; }
+    .products-grid-new .product-card-new h3 { font-size: 13px; }
     .custom-banner { flex-direction: column; }
     .custom-banner-bg { width: 100%; height: 200px; }
     .inspirations-grid { grid-template-columns: repeat(2, 1fr); }

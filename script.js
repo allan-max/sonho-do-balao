@@ -1534,4 +1534,47 @@ function carregarMeusPedidos() {
         `;
     });
 }
-document.addEventListener('DOMContentLoaded', carregarMeusPedidos);
+document.addEventListener('DOMContentLoaded', () => {
+    carregarMeusPedidos();
+    initTestimonialCarousel();
+});
+
+function initTestimonialCarousel() {
+    const testimonialContainer = document.querySelector('.testimonial-banner');
+    if (!testimonialContainer) return;
+
+    const h2 = testimonialContainer.querySelector('h2');
+    if (!h2) return;
+
+    const testimonials = [
+        '"Cada detalhe foi pensado com amor e cuidado. Superaram todas as nossas expectativas!"',
+        '"Os balões deixaram nossa festa ainda mais mágica. Recomendo de olhos fechados!"',
+        '"Trabalho impecável e atendimento maravilhoso. Transformaram nosso sonho em realidade."',
+        '"Uma decoração de tirar o fôlego! Todos os convidados elogiaram muito."'
+    ];
+    let currentIndex = 0;
+
+    setInterval(() => {
+        // Slide out to left
+        h2.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out';
+        h2.style.transform = 'translateX(-50px)';
+        h2.style.opacity = '0';
+
+        setTimeout(() => {
+            // Change text and move to right invisibly
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            h2.innerText = testimonials[currentIndex];
+            
+            h2.style.transition = 'none';
+            h2.style.transform = 'translateX(50px)';
+            
+            // Force reflow
+            void h2.offsetWidth;
+
+            // Slide in from right
+            h2.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out';
+            h2.style.transform = 'translateX(0)';
+            h2.style.opacity = '1';
+        }, 500);
+    }, 6000);
+}
