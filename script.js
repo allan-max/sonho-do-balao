@@ -21,6 +21,7 @@ const modelosSalvosIniciais = [
         id: 'buque-de-bubble', 
         nome: 'Buquê de Bubble', 
         categoria: 'Balões Prontos', 
+        tags: ['bubble', 'bouquet', 'aniversário', 'formatura', 'corporativo', 'outros'], 
         preco: '149,90', 
         imagem: 'baloes-prontos/Buque-de-Bubble/inicial.jpg', 
         status: 'ativo',
@@ -38,6 +39,7 @@ const modelosSalvosIniciais = [
         id: 'kit-de-baloes-para-topo-de-bolo', 
         nome: 'Kit de Balões para Topo de Bolo', 
         categoria: 'Balões Prontos', 
+        tags: ['bubble', 'látex', 'aniversário', 'maternidade', 'chá de bebê', 'outros'], 
         preco: '89,90', 
         imagem: 'baloes-prontos/Kit-de-baloes-para-topo-de-bolo/Kit-de-baloes-para-topo-de-bolo-inicial.jpg', 
         status: 'ativo',
@@ -54,6 +56,7 @@ const modelosSalvosIniciais = [
         id: 'buque-celebration-luxo', 
         nome: 'Buquê Celebration Luxo', 
         categoria: 'Balões Prontos', 
+        tags: ['bubble', 'metalizado', 'bouquet', 'aniversário', 'formatura'], 
         preco: '189,90', 
         imagem: 'baloes-prontos/Buque-Celebration-Luxo/Buque-Celebration-Luxo-inicial.jpg', 
         status: 'ativo',
@@ -70,6 +73,7 @@ const modelosSalvosIniciais = [
         id: 'buque-paixao-flutuante', 
         nome: 'Buquê Paixão Flutuante', 
         categoria: 'Balões Prontos', 
+        tags: ['coração', 'metalizado', 'bouquet', 'romântico'], 
         preco: '169,90', 
         imagem: 'baloes-prontos/Buque-Paixao-Flutuante/Buque-Paixao-Flutuante-inicial.jpg', 
         status: 'ativo',
@@ -87,6 +91,7 @@ const modelosSalvosIniciais = [
         id: 'kit-surpresa-romantica', 
         nome: 'Kit Surpresa Romântica', 
         categoria: 'Balões Prontos', 
+        tags: ['coração', 'metalizado', 'látex', 'romântico'], 
         preco: '129,90', 
         imagem: 'baloes-prontos/Kit-Surpresa-Romantica/Kit-Surpresa-Romantica-inicial.jpg', 
         status: 'ativo',
@@ -103,6 +108,7 @@ const modelosSalvosIniciais = [
         id: 'kit-celebracao-elegance-com-lacinhos', 
         nome: 'Kit Celebração Elegance com Lacinhos', 
         categoria: 'Balões Prontos', 
+        tags: ['látex', 'metalizado', 'aniversário', 'romântico', 'outros'], 
         preco: '109,90', 
         imagem: 'baloes-prontos/Kit-Celebracao-Elegance-com-Lacinhos/Kit-Celebracao-Elegance-com-Lacinhos.jpg', 
         status: 'ativo',
@@ -119,6 +125,7 @@ const modelosSalvosIniciais = [
         id: 'kit-estrelado-premium', 
         nome: 'Kit Estrelado Premium', 
         categoria: 'Balões Prontos', 
+        tags: ['metalizado', 'látex', 'aniversário', 'formatura'], 
         preco: '159,90', 
         imagem: 'baloes-prontos/Kit-Estrelado-Premium/Kit-Estrelado-Premium-inicial.jpg', 
         status: 'ativo',
@@ -173,6 +180,11 @@ modelosSalvosIniciais.forEach(inicial => {
                     precisaAtualizar = true;
                 }
             });
+        }
+        // Garante as tags
+        if (inicial.tags) {
+            modelosSalvos[index].tags = inicial.tags;
+            precisaAtualizar = true;
         }
     }
 });
@@ -526,8 +538,9 @@ function renderizarVitrine() {
 document.addEventListener('DOMContentLoaded', () => {
     const inputPesquisa = document.getElementById('pesquisa-modelo');
     const categoryItems = document.querySelectorAll('.category-item');
-    const checkboxesTipo = document.querySelectorAll('.filter-group:nth-of-type(1) input[type="checkbox"]');
-    const checkboxesOcasiao = document.querySelectorAll('.filter-group:nth-of-type(3) input[type="checkbox"]');
+    const filterGroups = document.querySelectorAll('.filter-group');
+    const checkboxesTipo = filterGroups[0] ? filterGroups[0].querySelectorAll('input[type="checkbox"]') : [];
+    const checkboxesOcasiao = filterGroups[2] ? filterGroups[2].querySelectorAll('input[type="checkbox"]') : [];
     const colorDots = document.querySelectorAll('.color-dot');
     const btnLimparFiltros = document.querySelector('.btn-clear-filters');
     const selectSort = document.querySelector('.sort-box select');
@@ -550,23 +563,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const ativo = modelo.status === 'ativo';
             const nomeModelo = (modelo.nome || '').toLowerCase();
             const categoriaModelo = (modelo.categoria || '').toLowerCase();
+            const tagsModelo = (modelo.tags || []).map(t => t.toLowerCase());
             
-            const passaBusca = nomeModelo.includes(termoBusca);
+            const passaBusca = nomeModelo.includes(termoBusca) || tagsModelo.some(t => t.includes(termoBusca));
             
             let passaCategoriaPrincipal = true;
             if (currentCategory !== 'Todos') {
                 const catBusca = currentCategory.toLowerCase();
-                passaCategoriaPrincipal = nomeModelo.includes(catBusca) || categoriaModelo.includes(catBusca);
+                const stemCat = catBusca.replace(/ões$/, 'ão').replace(/s$/, '');
+                passaCategoriaPrincipal = nomeModelo.includes(catBusca) || categoriaModelo.includes(catBusca) || tagsModelo.some(t => t.includes(stemCat) || stemCat.includes(t));
             }
 
             let passaTipo = true;
             if (tiposMarcados.length > 0) {
-                passaTipo = tiposMarcados.some(tipo => nomeModelo.includes(tipo));
+                passaTipo = tiposMarcados.some(tipo => {
+                    const stemTipo = tipo.replace(/ões$/, 'ão').replace(/s$/, '');
+                    return nomeModelo.includes(tipo) || tagsModelo.some(t => t.includes(stemTipo) || stemTipo.includes(t));
+                });
             }
 
             let passaOcasiao = true;
             if (ocasioesMarcadas.length > 0) {
-                passaOcasiao = ocasioesMarcadas.some(ocas => nomeModelo.includes(ocas));
+                passaOcasiao = ocasioesMarcadas.some(ocas => {
+                    const stemOcas = ocas.replace(/ões$/, 'ão').replace(/s$/, '');
+                    return nomeModelo.includes(ocas) || tagsModelo.some(t => t.includes(stemOcas) || stemOcas.includes(t));
+                });
             }
 
             let passaCor = true;
@@ -675,3 +696,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
