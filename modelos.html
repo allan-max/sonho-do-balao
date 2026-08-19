@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -9,28 +9,17 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Início - artebalao</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amatic+SC:wght@400;700&family=Caveat&family=Cookie&family=Dancing+Script&family=Grand+Hotel&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Inter:wght@400;600;700&family=Parisienne&family=Pinyon+Script&family=Qwigley&family=Rochester&family=Sacramento&family=Shadows+Into+Light&family=Sue+Ellen+Francisco&family=Tangerine&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
-
-    <body>
-
-        <header class="header">
+    <header class="header">
         <div class="logo">
             <img src="logo.svg" alt="Arte Balão" id="logo-site">
             <a href="index.html" class="logo-link">
                 <span class="logo-title">ARTE BALÃO</span>
-                <span class="logo-subtitle">BALÕES E PRESENTES PERSONALIZADOS</span>
+                <span class="logo-subtitle">BALÕES E EVENTOS DECORATIVOS</span>
             </a>
         </div>
 
@@ -38,7 +27,7 @@
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="modelos.html" class="active">Catálogo</a></li>
-                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="eventos.html">Ocasiões</a></li>
                 <li><a href="#sobre">Sobre nós</a></li>
                 <li><a href="https://wa.me/5532991193994" target="_blank">Contato</a></li>
             </ul>
@@ -46,7 +35,6 @@
 
         <div class="header-actions">
             <a href="#" class="action-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a href="login.html" class="action-icon"><i class="fa-regular fa-user"></i></a>
             <a href="meus-pedidos.html" class="action-icon cart-icon">
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span class="cart-count">0</span>
@@ -58,48 +46,255 @@
         </div>
     </header>
 
-        <div class="mobile-menu-overlay" id="menu-overlay"></div>
-        <nav class="mobile-menu" id="mobile-menu">
-            <div class="menu-header">
-                <span class="menu-title">Menu</span>
-                <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <ul class="menu-links">
-                <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
-            <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Eventos</a></li>
-                <li><a href="modelos.html" class="active"><i class="fa-solid fa-shapes"></i> Modelos de Balões</a></li>
-                <li><a href="meus-pedidos.html"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a></li>
-                <li><a href="login.html"><i class="fa-solid fa-user"></i> Login / Registo</a></li>
-            </ul>
-        </nav>
+    <div class="mobile-menu-overlay" id="menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="menu-header">
+            <span class="menu-title">Menu</span>
+            <button class="close-menu" id="close-menu-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <ul class="menu-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li><a href="modelos.html" class="active"><i class="fa-solid fa-shapes"></i> Catálogo</a></li>
+            <li><a href="eventos.html"><i class="fa-solid fa-star"></i> Ocasiões</a></li>
+            <li><a href="#sobre"><i class="fa-solid fa-info-circle"></i> Sobre nós</a></li>
+            <li><a href="https://wa.me/5532991193994"><i class="fa-brands fa-whatsapp"></i> Contato</a></li>
+        </ul>
+    </nav>
 
-        <main class="catalog-page">
-            <div class="catalog-header">
-                <h1>Modelos de Balões</h1>
-                <p>Escolha um modelo para personalizar do seu jeito.</p>
+    <main class="catalog-page-new">
+        <!-- Hero Banner -->
+        <section class="hero-catalog" style="background-image: url('balao/fundo_de_login.png');">
+            <div class="hero-catalog-content">
+                <span class="badge-destaque"><i class="fa-solid fa-star" style="color: #c48f82;"></i> CATÁLOGO DE BALÕES</span>
+                <h1 class="hero-catalog-title">Modelos que<br><span class="highlight-cursive">encantam em</span><br>cada detalhe.</h1>
+                <div class="hero-divider"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <p class="hero-catalog-text">Explore nossa coleção e encontre o balão perfeito para criar momentos inesquecíveis.</p>
             </div>
+        </section>
 
-            <div class="catalog-filters" id="area-filtros-catalogo">
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="pesquisa-modelo" placeholder="Buscar modelo...">
+        <!-- Trust Banner -->
+        <section class="trust-banner trust-catalog">
+            <div class="trust-item">
+                <i class="fa-regular fa-heart"></i>
+                <p>Modelos exclusivos</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-palette"></i>
+                <p>Personalização total</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-truck"></i>
+                <p>Entrega com cuidado</p>
+            </div>
+            <div class="trust-item">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <p>Qualidade que encanta</p>
+            </div>
+        </section>
+
+        <!-- Categories Selection -->
+        <section class="catalog-categories-section">
+            <div class="categories-header">
+                <div class="hero-divider"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <h2>Escolha o estilo que mais combina com você</h2>
+                <p>Navegue pelas categorias e descubra infinitas possibilidades.</p>
+            </div>
+            <div class="categories-list">
+                <div class="category-item active">
+                    <i class="fa-solid fa-balloon"></i>
+                    <span>Todos</span>
                 </div>
-                <div class="filter-box">
-                    <select id="filtro-categoria">
-                        <option value="todas">Todas as categorias</option>
-                        <!-- O JavaScript vai injetar as categorias reais aqui magicamente! -->
-                    </select>
+                <div class="category-item">
+                    <i class="fa-solid fa-circle"></i>
+                    <span>Bubble</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>Metalizados</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <span>Látex</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-2"></i>
+                    <span>Numéricos</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Corações</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-gift"></i>
+                    <span>Temáticos</span>
+                </div>
+                <div class="category-item">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span>Bouquets</span>
                 </div>
             </div>
+        </section>
 
-            <div class="products-grid" id="grid-catalogo-cliente">
+        <!-- Catalog Section -->
+        <section class="catalog-main-area">
+            <aside class="catalog-sidebar">
+                <div class="sidebar-header">
+                    <h3>Filtros</h3>
+                    <i class="fa-solid fa-sliders" style="color: var(--cor-secundaria);"></i>
+                </div>
+                
+                <div class="filter-group">
+                    <div class="filter-group-header">
+                        <h4>Tipo de balão</h4>
+                        <i class="fa-solid fa-chevron-up" style="color: #aaa; font-size: 12px;"></i>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Bubble</label>
+                        <label><input type="checkbox"> Metalizado</label>
+                        <label><input type="checkbox"> Látex</label>
+                        <label><input type="checkbox"> Numérico</label>
+                        <label><input type="checkbox"> Coração</label>
+                        <label><input type="checkbox"> Bouquet</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group-header">
+                        <h4>Cores</h4>
+                    </div>
+                    <div class="filter-colors">
+                        <span class="color-dot" data-color="branco" style="background: #fff; border: 1px solid #ccc;"></span>
+                        <span class="color-dot" data-color="bege" style="background: #f5f5dc;"></span>
+                        <span class="color-dot" data-color="dourado" style="background: #d2b48c;"></span>
+                        <span class="color-dot" data-color="rosa claro" style="background: #ffb6c1;"></span>
+                        <span class="color-dot" data-color="rosa" style="background: #ff69b4;"></span>
+                        <span class="color-dot" data-color="vermelho" style="background: #ff0000;"></span>
+                        <span class="color-dot" data-color="verde claro" style="background: #8fbc8f;"></span>
+                        <span class="color-dot" data-color="verde" style="background: #2e8b57;"></span>
+                        <span class="color-dot" data-color="azul claro" style="background: #add8e6;"></span>
+                        <span class="color-dot" data-color="roxo" style="background: #9370db;"></span>
+                        <span class="color-dot" data-color="preto" style="background: #000;"></span>
+                        <span class="color-dot" data-color="laranja" style="background: #cd853f;"></span>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-group-header">
+                        <h4>Ocasião</h4>
+                    </div>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Aniversário</label>
+                        <label><input type="checkbox"> Formatura</label>
+                        <label><input type="checkbox"> Chá de bebê</label>
+                        <label><input type="checkbox"> Romântico</label>
+                        <label><input type="checkbox"> Corporativo</label>
+                        <label><input type="checkbox"> Maternidade</label>
+                        <label><input type="checkbox"> Outros</label>
+                    </div>
+                </div>
+
+                <button class="btn-clear-filters"><i class="fa-solid fa-rotate-left"></i> Limpar filtros</button>
+            </aside>
+
+            <div class="catalog-content">
+                <div class="catalog-top-bar">
+                    <div class="search-box-new">
+                        <input type="text" id="pesquisa-modelo" placeholder="Busque um modelo, cor ou ocasião...">
+                        <i class="fa-solid fa-magnifying-glass search-icon-new"></i>
+                    </div>
+                    <div class="sort-box">
+                        <span>Ordenar por:</span>
+                        <select>
+                            <option>Mais procurados</option>
+                            <option>Menor preço</option>
+                            <option>Maior preço</option>
+                        </select>
+                        <div style="display: none;" id="area-filtros-catalogo">
+                            <select id="filtro-categoria"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-grid-new" id="grid-catalogo-cliente">
+                    <!-- Products will be injected here by script.js -->
+                </div>
             </div>
+        </section>
 
-        </main>
+        <!-- Customization Banner -->
+        <section class="custom-banner">
+            <div class="custom-banner-bg" style="background-image: url('baloes-prontos/Buque-de-Bubble/branco.png');"></div>
+            <div class="custom-banner-content">
+                <p class="custom-banner-subtitle">NÃO ENCONTROU O QUE IMAGINAVA?</p>
+                <h2 class="custom-banner-title">Personalizamos <span class="highlight-cursive">do seu jeito!</span></h2>
+                <p class="custom-banner-text">Misture modelos, cores e mensagens e crie algo totalmente único.</p>
+                <a href="personalizacao.html" style="text-decoration: none;">
+                    <button class="btn custom-btn">Solicitar personalização <i class="fa-regular fa-pen-to-square"></i></button>
+                </a>
+            </div>
+        </section>
+
+        <!-- Inspirations -->
+        <section class="inspirations-section">
+            <div class="categories-header">
+                <div class="hero-divider"><i class="fa-solid fa-bow-ribbon"></i></div>
+                <h2>Mais inspirações para sua festa</h2>
+                <p>O balão perfeito para cada momento especial.</p>
+            </div>
+            
+            <div class="inspirations-grid">
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/coracao-vermelho.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-solid fa-cake-candles"></i>
+                        <h3>Aniversário <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/balão-infantil.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-solid fa-baby-carriage"></i>
+                        <h3>Maternidade <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/formatura.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h3>Formatura <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/coracao-dourado.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-regular fa-heart"></i>
+                        <h3>Romântico <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/bubble-branco.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <h3>Corporativo <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+                <a href="#" class="insp-card">
+                    <div class="insp-bg" style="background-image: url('balao/balão-infantil.png');"></div>
+                    <div class="insp-overlay"></div>
+                    <div class="insp-content">
+                        <i class="fa-solid fa-child"></i>
+                        <h3>Infantil <i class="fa-solid fa-arrow-right"></i></h3>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
     <script src="script.js"></script>
-    </body>
+</body>
 
 </html>
-
-
-
