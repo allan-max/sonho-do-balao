@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            return ativo && passaBusca && passaCategoriaPrincipal && passaTipo && passaCor;
+            return ativo && passaBusca && passaCategoriaPrincipal && passaTipo && passaOcasiao && passaCor;
         });
 
         if (sortValue === 'Menor preço') {
@@ -1362,7 +1362,7 @@ function carregarTabelaPedidos() {
                 const cor = (linha.cor === 'branco' || linha.cor === '#ffffff') ? '#ffffff' : linha.cor;
                 const textShadow = cor === '#ffffff' ? 'text-shadow: 0px 1px 2px rgba(0,0,0,0.8);' : '';
                 htmlImagem += `
-                <div style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; z-index: 10; font-weight: bold;
+                <div style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; z-index: 10; font-weight: bold; padding: 1.25cqw 2.5cqw; border: 0.5cqw dashed transparent;
                     font-family: ${linha.fonte}; ${tamanhoStyle} color: ${cor}; top: ${linha.top}; left: ${linha.left}; ${textShadow}">
                     ${linha.texto}
                 </div>`;
@@ -1508,7 +1508,7 @@ function carregarMeusPedidos() {
                 const cor = (linha.cor === 'branco' || linha.cor === '#ffffff') ? '#ffffff' : linha.cor;
                 const textShadow = cor === '#ffffff' ? 'text-shadow: 0px 1px 2px rgba(0,0,0,0.8);' : '';
                 htmlImagem += `
-                <div style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; z-index: 10; font-weight: bold;
+                <div style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; pointer-events: none; z-index: 10; font-weight: bold; padding: 1.25cqw 2.5cqw; border: 0.5cqw dashed transparent;
                     font-family: ${linha.fonte}; ${tamanhoStyle} color: ${cor}; top: ${linha.top}; left: ${linha.left}; ${textShadow}">
                     ${linha.texto}
                 </div>`;
@@ -1578,3 +1578,23 @@ function initTestimonialCarousel() {
         }, 500);
     }, 6000);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const categoriesToggleBtn = document.getElementById('categories-toggle-btn');
+    const categoriesListContent = document.getElementById('categories-list-content');
+    if (categoriesToggleBtn && categoriesListContent) {
+        categoriesToggleBtn.addEventListener('click', () => {
+            categoriesToggleBtn.classList.toggle('open');
+            categoriesListContent.classList.toggle('open');
+        });
+    }
+
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+    const sidebarFiltersContent = document.getElementById('sidebar-filters-content');
+    if (sidebarToggleBtn && sidebarFiltersContent) {
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebarToggleBtn.classList.toggle('open');
+            sidebarFiltersContent.classList.toggle('open');
+        });
+    }
+});

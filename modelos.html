@@ -97,12 +97,15 @@
 
         <!-- Categories Selection -->
         <section class="catalog-categories-section">
-            <div class="categories-header">
+            <div class="categories-header" id="categories-toggle-btn" style="cursor: pointer;">
                 <div class="hero-divider"><i class="fa-solid fa-bow-ribbon"></i></div>
-                <h2>Escolha o estilo que mais combina com você</h2>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <h2>Escolha o estilo que mais combina com você</h2>
+                    <i class="fa-solid fa-chevron-down toggle-mobile-icon" style="display: none; color: var(--cor-secundaria);"></i>
+                </div>
                 <p>Navegue pelas categorias e descubra infinitas possibilidades.</p>
             </div>
-            <div class="categories-list">
+            <div class="categories-list" id="categories-list-content">
                 <div class="category-item active">
                     <i class="fa-solid fa-balloon"></i>
                     <span>Todos</span>
@@ -141,11 +144,15 @@
         <!-- Catalog Section -->
         <section class="catalog-main-area">
             <aside class="catalog-sidebar">
-                <div class="sidebar-header">
+                <div class="sidebar-header" id="sidebar-toggle-btn" style="cursor: pointer;">
                     <h3>Filtros</h3>
-                    <i class="fa-solid fa-sliders" style="color: var(--cor-secundaria);"></i>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="fa-solid fa-sliders" style="color: var(--cor-secundaria);"></i>
+                        <i class="fa-solid fa-chevron-down toggle-mobile-icon" style="display: none; color: var(--cor-secundaria);"></i>
+                    </div>
                 </div>
                 
+                <div id="sidebar-filters-content">
                 <div class="filter-group">
                     <div class="filter-group-header">
                         <h4>Tipo de balão</h4>
@@ -197,6 +204,7 @@
                 </div>
 
                 <button class="btn-clear-filters"><i class="fa-solid fa-rotate-left"></i> Limpar filtros</button>
+                </div>
             </aside>
 
             <div class="catalog-content">
