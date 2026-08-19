@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -50,12 +50,12 @@
         <h1>Revise seu pedido</h1>
 
         <div class="summary-card">
-            <div class="summary-image" style="position: relative; overflow: hidden;">
-                <img src="balao/balao-branco.png" alt="Seu Balão" id="conf-imagem" style="width: 100%; display: block;">
+            <div class="summary-image" style="position: relative; overflow: hidden; aspect-ratio: 1 / 1; display: flex; justify-content: center; align-items: center; background: #f8fafc;">
+                <img src="balao/balao-branco.png" alt="Seu Balão" id="conf-imagem" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                 <!-- Caixas invisíveis para receberem as 3 linhas na mesma posição -->
-                <div id="conf-preview-linha-1" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
-                <div id="conf-preview-linha-2" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
-                <div id="conf-preview-linha-3" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none;"></div>
+                <div id="conf-preview-linha-1" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; font-weight: bold; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none; z-index: 10;"></div>
+                <div id="conf-preview-linha-2" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; font-weight: bold; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none; z-index: 10;"></div>
+                <div id="conf-preview-linha-3" style="position: absolute; transform: translate(-50%, -50%); white-space: nowrap; font-weight: bold; text-shadow: 1px 1px 3px rgba(255,255,255,0.9); pointer-events: none; z-index: 10;"></div>
             </div>
 
             <div class="summary-details">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="detail-item">
                     <span>Adicionais</span>
-                    <strong>Confetes, Laço, Base</strong>
+                    <strong id="conf-adicionais">Nenhum</strong>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>
